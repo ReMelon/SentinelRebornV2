@@ -6,11 +6,12 @@ Source code for a multi purpose Discord bot (MULTI GUILD!)
 
 ## Features
 
-- **34** Commands
+- **65** Commands
 - High quality music bot
 - Fun games (using gamecord) & Commands
      - Games include wordle, 2048, snake and much more
      - Fun commands include 8ball, memes, jokes, and MUCH more
+     - Also includes economy
 - Easy to set up
 
 ## Installation
