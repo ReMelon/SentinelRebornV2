@@ -1,0 +1,15 @@
+# Guilds + Members List
+gmList: false
+
+#Automatic status messages
+autostatus: false
+
+#ClientReady DM
+readydm: false
+
+#ForceMute
+
+forceMute:
+  enabled: false
+  userid: 'userid of person to shutup'
+
