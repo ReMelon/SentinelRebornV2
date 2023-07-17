@@ -1,9 +1,7 @@
-const { SlashCommandBuilder } = require("@discordjs/builders")
-const { MessageEmbed, EmbedBuilder } = require("discord.js")
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js")
 const { QueryType } = require("discord-player")
 const fs = require("fs")
 const moment = require("moment")
-const backtickmulti = "```"
 var testsong = "https://youtu.be/UDVtMYqUAyw"
 var helpcmd = "`/help`"
 

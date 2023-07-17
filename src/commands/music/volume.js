@@ -1,37 +1,39 @@
-const { SlashCommandBuilder } = require("@discordjs/builders")
-const { EmbedBuilder } = require("discord.js")
-const fs = require("fs")
-const moment = require("moment")
-const backtickmulti = "```"
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 
 module.exports = {
-    data: new SlashCommandBuilder().setName("volume").setDescription("Change volume of the current song")
-    .addNumberOption((option) => option.setName("amount").setDescription("Choose amount of the volume").setRequired(true)),
-    async execute(interaction, client) {
-        const noSongEmbed = new EmbedBuilder()
-			.setColor(`c3b4f7`)
-			.setTitle(`There are no songs in the queue!`)
-        	
+  data: new SlashCommandBuilder()
+    .setName("volume")
+    .setDescription("Change volume of the current song")
+    .addNumberOption((option) =>
+      option
+        .setName("amount")
+        .setDescription("Choose amount of the volume")
+        .setRequired(true)
+    ),
+  async execute(interaction, client) {
+    const noSongEmbed = new EmbedBuilder()
+      .setColor(`c3b4f7`)
+      .setTitle(`There are no songs in the queue!`);
 
-        const amountOfVolume = interaction.options.getNumber("amount")
+    const amountOfVolume = interaction.options.getNumber("amount");
 
-        const queue = client.player.getQueue(interaction.guildId)
+    const queue = client.player.getQueue(interaction.guildId);
 
-        if (!queue) return await interaction.reply({ embeds: [noSongEmbed] })
+    if (!queue) return await interaction.reply({ embeds: [noSongEmbed] });
 
-        queue.setVolume(amountOfVolume)
-        await interaction.reply({
-            embeds: [
-                new EmbedBuilder()
-                .setColor(`c3b4f7`)
-                .setTitle("Changed volume")
-                .setDescription(`Changed volume of the song to **${amountOfVolume}**`)
-                .setTimestamp()
-                .setFooter({ text: `/${interaction.commandName} || ${interaction.user.tag}`, iconURL: client.user.displayAvatarURL()})
-            ]
-        })
-
-
-
-    }
-}
+    queue.setVolume(amountOfVolume);
+    await interaction.reply({
+      embeds: [
+        new EmbedBuilder()
+          .setColor(`c3b4f7`)
+          .setTitle("Changed volume")
+          .setDescription(`Changed volume of the song to **${amountOfVolume}**`)
+          .setTimestamp()
+          .setFooter({
+            text: `/${interaction.commandName} || ${interaction.user.tag}`,
+            iconURL: client.user.displayAvatarURL(),
+          }),
+      ],
+    });
+  },
+};
