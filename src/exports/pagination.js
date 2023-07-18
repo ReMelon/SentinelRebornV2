@@ -1,5 +1,3 @@
-const { EmbedBuilder } = require("discord.js");
-const fs = require("fs");
 const {
   SlashCommandBuilder,
   ActionRowBuilder,
@@ -7,8 +5,6 @@ const {
   ButtonStyle,
   ComponentType,
 } = require("discord.js");
-const backtick = "`";
-const backtickmulti = "```";
 
 async function buttonPages(interaction, pages, time = 60000) {
   if (!interaction) throw new error("Please provide an interaction argument");
